@@ -68,6 +68,7 @@ def http_run(vertical: bool = True):
             target=_run_http_request, args=(request,), kwargs={"vertical": vertical}
         )
         current_request.proc.start()
+        current_request.proc.join()
 
     vim.async_call(_run)
 
